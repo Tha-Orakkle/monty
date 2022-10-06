@@ -6,7 +6,7 @@
 
 void free_data(void)
 {
-	int i;
+	int i = 0;
 
 	if (data.line || data.words)
 	{
@@ -18,6 +18,7 @@ void free_data(void)
 			free(data.words[i]);
 			i++;
 		}
+		free(data.words);
 		data.words = NULL;
 	}
 }

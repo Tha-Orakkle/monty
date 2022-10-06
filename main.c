@@ -1,6 +1,6 @@
 #include "monty.h"
 
-data_t data = {NULL, NULL, NULL, NULL, 0};
+data_t data = DATA_INIT;
 
 /**
  * monty - opens and reads and gets a line from

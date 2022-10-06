@@ -77,7 +77,7 @@ extern data_t data;
 #define UNKNOWN "L%d: unknown instruction %s\n"
 #define MALLOC_FAIL "Error: malloc failed\n"
 #define PUSH_FAIL "L%u: usage: push integer\n"
-
+#define DATA_INIT {NULL, NULL, NULL, NULL, 0}
 /* main.c */
 void monty(args_t *args);
 

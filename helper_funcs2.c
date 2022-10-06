@@ -12,6 +12,7 @@ int popStack(stack_t *h)
 {
 	stack_t *temp = h, *current;
 	int val;
+
 	if (h == NULL)
 	{
 		return (0);
