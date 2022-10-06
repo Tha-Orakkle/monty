@@ -5,25 +5,29 @@
 #include <stdio.h>
 
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
+ * struct dlistint_s - doubly linked list
  * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
+ * @prev: points to the previous node
+ * @next: points to the next node
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * 
  */
-typedef struct stack_s
+typedef struct dlistint_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
-} stack_t;
+    int n;
+    struct dlistint_s *prev;
+    struct dlistint_s *next;
+} dlistint_t;
 
-void print_dlistint(const stack_t *h);
-stack_t *add_dnodeint(stack_t **head, const int n);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
-void free_dlistint(stack_t *head);
+
+
+void print_dlistint(const dlistint_t *h);
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
+void free_dlistint(dlistint_t *head);
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+
 
 
 #endif
