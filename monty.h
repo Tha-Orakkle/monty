@@ -75,6 +75,8 @@ extern data_t data;
 #define USAGE "USAGE: monty file\n"
 #define FILE_ERROR "Error: Can't open file %s\n"
 #define UNKNOWN "L%d: unknown instruction %s\n"
+#define MALLOC_FAIL "Error: malloc failed\n"
+#define PUSH_FAIL "L%u: usage: push integer\n"
 
 /* main.c */
 void monty(args_t *args);

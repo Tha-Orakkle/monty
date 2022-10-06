@@ -1,6 +1,10 @@
 #include "monty.h"
 
-
+/**
+ * print_dlistint - print all the elements
+ * @h: head of list
+ * Return: nodes
+ */
 size_t print_dlistint(const stack_t *h)
 {
 	size_t count = 0;
@@ -14,6 +18,13 @@ size_t print_dlistint(const stack_t *h)
 	return (count);
 }
 
+
+/**
+ * add_dnodeint - add node at beginning
+ * @head: points to pointer to head
+ * @n: integer to be inserted
+ * Return: address of the new element or NuLL if it failed
+ */
 stack_t *add_dnodeint(stack_t **head, const int n)
 {
 	stack_t *newNode = NULL;
@@ -37,6 +48,13 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	return (newNode);
 }
 
+
+/**
+ * add_dnodeint_end - add node at end of dllist
+ * @head: points to pointer to head
+ * @n: integer to be inserted
+ * Return: address of the new element or NuLL if it failed
+ */
 stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *tail = NULL;
@@ -66,6 +84,11 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	return (tail);
 }
 
+
+/**
+ * free_dlistint - free list_t list
+ * @head: pointers to head of dlistint_t
+ */
 void free_dlistint(stack_t *head)
 {
 	if (head != NULL)
@@ -73,6 +96,15 @@ void free_dlistint(stack_t *head)
 	free(head);
 }
 
+
+/**
+ * insert_dnodeint_at_index - inserts a node at a given position
+ *
+ * @h: the pointer to the first node of the list
+ * @idx: the index to get to
+ * @n: the data to populate data field
+ * Return: The address of the newly created node.
+ */
 stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n)
 {
 	unsigned int count = 0;

@@ -9,14 +9,37 @@
 void push_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	int num = atoi(data.words[1]);
-	(void) line_number;
+	int num = 0, i;
 
-	new = add_dnodeint(stack, num);
+	if (data.words[1] == NULL)
+	{
+		dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
+		free_data();
+		free_stack();
+		exit(EXIT_FAILURE);
+	}
 
+	for (i = 0; data.words[1][i]; i++)
+	{
+		if (isalpha(data.words[1][i]) != 0)
+		{
+			dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
+			free_data();
+			free_stack();
+			exit(EXIT_FAILURE);
+		}
+	}
+	num = atoi(data.words[1]);
+
+	if (data.qflag == 0)
+		new = add_dnodeint(stack, num);
+	else if (data.qflag == 1)
+		new = add_dnodeint_end(stack, num);
 	if (!new)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed");
+		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		free_data();
+		free_stack();
 		exit(EXIT_FAILURE);
 	}
 }
