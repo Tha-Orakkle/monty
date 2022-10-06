@@ -2,6 +2,13 @@
 
 data_t data = {NULL, NULL, NULL, NULL, 0};
 
+/**
+ * monty - opens and reads and gets a line from
+ * a file containing monty bytecode and calls the right function
+ * for the instruction found in the monty bytecode
+ * @args: points to a struct of arguments passed to main
+ */
+
 void monty(args_t *args)
 {
 	size_t size = 0;
@@ -42,7 +49,13 @@ void monty(args_t *args)
 
 
 
-
+/**
+ * main - interprets a monty bytecode
+ * @argc: arguments counter
+ * @argv: an array of arguments
+ *
+ * Return: EIT_SUCCESS or EXIT_FAILURE
+ */
 
 int main(int argc, char *argv[])
 {
