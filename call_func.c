@@ -16,9 +16,9 @@ void (*call_func(char **search))(stack_t **, unsigned int)
 	};
 	int op_codes = 2, i;
 
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < op_codes; i++)
 	{
-		if (strcmp(intstuctions_arr[i].opcode, search[0]) == 0)
+		if (strcmp(instructions_arr[i].opcode, search[0]) == 0)
 			return (instructions_arr[i].f);
 	}
 
