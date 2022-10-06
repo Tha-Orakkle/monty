@@ -97,5 +97,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 
-
+/* free.c */
+void free_data(void);
+void free_stack(void);
 #endif

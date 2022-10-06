@@ -31,7 +31,7 @@ void monty(args_t *args)
 		data.words = split_into_words(data.line);
 		if (data.words[0] == NULL || data.words[0][0] == '#')
 		{
-			/*free_data()*/
+			free_data();
 			continue;
 		}
 		code_func = call_func(data.words);
@@ -41,9 +41,9 @@ void monty(args_t *args)
 			exit(EXIT_FAILURE);
 		}
 		code_func(&(data.stack), args->line_number);
-		/*free_data()*/
+		free_data();
 	}
-	/*free_all(1);*/
+	free_stack();
 }
 
 
