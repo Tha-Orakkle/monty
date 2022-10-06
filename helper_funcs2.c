@@ -8,9 +8,9 @@
  * been deleted
  */
 
-int popStack(stack_t *h)
+int popStack(dlistint_t *h)
 {
-	stack_t *temp;
+	dlistint_t *temp;
 	int val;
 	if (h == NULL)
 	{
