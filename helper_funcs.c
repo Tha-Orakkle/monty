@@ -63,3 +63,9 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	return (tail);
 }
 
+void free_dlistint(stack_t *head)
+{
+	if (head != NULL)
+		free_dlistint(head->next);
+	free(head);
+} 
