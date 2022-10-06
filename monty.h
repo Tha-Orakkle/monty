@@ -78,6 +78,21 @@ extern data_t data;
 #define MALLOC_FAIL "Error: malloc failed\n"
 #define PUSH_FAIL "L%u: usage: push integer\n"
 #define DATA_INIT {NULL, NULL, NULL, NULL, 0}
+#define MALLOC_FAIL "Error: malloc failed\n"
+#define PUSH_FAIL "L%u: usage: push integer\n"
+#define PINT_FAIL "L%u: can't pint, stack empty\n"
+#define POP_FAIL "L%u: can't pop an empty stack\n"
+#define SWAP_FAIL "L%u: can't swap, stack too short\n"
+#define ADD_FAIL "L%u: can't add, stack too short\n"
+#define SUB_FAIL "L%u: can't sub, stack too short\n"
+#define DIV_FAIL "L%u: can't div, stack too short\n"
+#define DIV_ZERO "L%u: division by zero\n"
+#define MUL_FAIL "L%u: can't mul, stack too short\n"
+#define MOD_FAIL "L%u: can't mod, stack too short\n"
+#define PCHAR_FAIL "L%u: can't pchar, stack empty\n"
+#define PCHAR_RANGE "L%u: can't pchar, value out of range\n"
+
+
 /* main.c */
 void monty(args_t *args);
 
@@ -92,12 +107,28 @@ void (*call_func(char **search))(stack_t **, unsigned int);
 void push_handler(stack_t **stack, unsigned int line_number);
 void pall_handler(stack_t **stack, unsigned int line_number);
 
-/* lists */
+/* operation_handlers.c */
+void pint_handler(stack_t **stack, unsigned int line_number);
+void pop_handler(stack_t **stack, unsigned int line_number);
+void swap_handler(stack_t **stack, unsigned int line_number);
+void add_handler(stack_t **stack, unsigned int line_number);
+void nop_handler(stack_t **stack, unsigned int line_number);
+
+
+/* helper_funcs.c */
 size_t print_dlistint(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
+
+
+/*helper_funcs3.c*/
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+size_t stack_len(const stack_t *h);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
+
+
 
 /* free.c */
 void free_data(void);
