@@ -1,7 +1,7 @@
-#include "lists.h"
-#include <stdlib.h>
+#include "monty.h"
 
-size_t print_dlistint(const dlistint_t *h)
+
+size_t print_dlistint(const stack_t *h)
 {
 	size_t count = 0;
 
@@ -14,14 +14,14 @@ size_t print_dlistint(const dlistint_t *h)
 	return (count);
 }
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+stack_t *add_dnodeint(stack_t **head, const int n)
 {
-	dlistint_t *newNode = NULL;
+	stack_t *newNode = NULL;
 
 	if (head == NULL)
 		return (NULL);
 
-	newNode = malloc(sizeof(dlistint_t));
+	newNode = malloc(sizeof(stack_t));
 	if (!newNode)
 		return (NULL);
 
@@ -37,15 +37,15 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	return (newNode);
 }
 
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
-	dlistint_t *tail = NULL;
-	dlistint_t *current = NULL;
+	stack_t *tail = NULL;
+	stack_t *current = NULL;
 
 	if (head == NULL)
 		return (NULL);
 
-	tail = malloc(sizeof(dlistint_t));
+	tail = malloc(sizeof(stack_t));
 	if (tail == NULL)
 		return (NULL);
 
@@ -66,17 +66,17 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	return (tail);
 }
 
-void free_dlistint(dlistint_t *head)
+void free_dlistint(stack_t *head)
 {
 	if (head != NULL)
 		free_dlistint(head->next);
 	free(head);
 }
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n)
 {
 	unsigned int count = 0;
-	dlistint_t *new = malloc(sizeof(dlistint_t)), *cursor = *h, *rep;
+	stack_t *new = malloc(sizeof(stack_t)), *cursor = *h, *rep;
 
 	if (!new || !h)
 		return (NULL);

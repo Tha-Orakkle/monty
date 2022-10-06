@@ -7,7 +7,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
-#include "lists.h"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -56,7 +55,6 @@ typedef struct data_s
 	int qflag;
 } data_t;
 
-typedef stack_t dlistint_t;
 
 /**
  * struct args_s - structure for arguments from main
@@ -81,7 +79,6 @@ extern data_t data;
 /* main.c */
 void monty(args_t *args);
 
-
 /* split.c */
 int count_word(char *s);
 char **split_into_words(char *str);
@@ -92,6 +89,13 @@ void (*call_func(char **search))(stack_t **, unsigned int);
 /* operation_handlers.c */
 void push_handler(stack_t **stack, unsigned int line_number);
 void pall_handler(stack_t **stack, unsigned int line_number);
+
+/* lists */
+size_t print_dlistint(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 
 
 #endif

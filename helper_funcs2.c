@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * popStack - deletes nodes from top for stack
@@ -8,9 +8,9 @@
  * been deleted
  */
 
-int popStack(dlistint_t *h)
+int popStack(stack_t *h)
 {
-	dlistint_t *temp;
+	stack_t *temp = h, *current;
 	int val;
 	if (h == NULL)
 	{
@@ -23,9 +23,9 @@ int popStack(dlistint_t *h)
 		{
 			h->next->prev = NULL;
 		}
-		temp = h->next;
+		current = h->next;
 		free(h);
-		h = temp;
+		h = current;
 	}
 	return (val);
 }

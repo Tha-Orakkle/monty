@@ -47,7 +47,7 @@ char **split_into_words(char *str)
 
 	for (i = 0; i <= len; i++)
 	{
-		if (isspace(str[i]) || str[i] == '\0' || str[i] == '\n')
+		if (str[i] == ' ' || str[i] == '\0' || str[i] == '\n')
 		{
 			if (c)
 			{
