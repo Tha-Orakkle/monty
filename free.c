@@ -22,8 +22,6 @@ void free_everything(char **args)
 
 void free_data(int check)
 {
-	int i = 0;
-
 	if (data.line)
 	{
 		free(data.line);
