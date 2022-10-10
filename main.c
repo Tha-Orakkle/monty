@@ -31,19 +31,20 @@ void monty(args_t *args)
 		data.words = split_into_words(data.line);
 		if (data.words[0] == NULL || data.words[0][0] == '#')
 		{
-			free_data();
+			free_data(0);
 			continue;
 		}
 		code_func = call_func(data.words);
 		if (!code_func)
 		{
 			dprintf(STDERR_FILENO, UNKNOWN, args->line_number, data.words[0]);
+			free_data(1);
 			exit(EXIT_FAILURE);
 		}
 		code_func(&(data.stack), args->line_number);
-		free_data();
+		free_data(0);
 	}
-	free_stack();
+	free_data(1);
 }
 
 

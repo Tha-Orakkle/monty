@@ -131,6 +131,6 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 
 
 /* free.c */
-void free_data(void);
-void free_stack(void);
+void free_data(int check);
+void free_everything(char **args);
 #endif

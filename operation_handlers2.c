@@ -12,8 +12,7 @@ void pint_handler(stack_t **stack, unsigned int line_number)
 	if (!head)
 	{
 		dprintf(STDERR_FILENO, PINT_FAIL, line_number);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 
@@ -32,8 +31,7 @@ void pop_handler(stack_t **stack, unsigned int line_number)
 	if (!temp)
 	{
 		dprintf(STDERR_FILENO, POP_FAIL, line_number);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 
@@ -53,8 +51,7 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 	if (stack_len(*stack) < 2)
 	{
 		dprintf(STDERR_FILENO, SWAP_FAIL, line_number);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 
@@ -65,8 +62,7 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 	if (!node)
 	{
 		dprintf(STDERR_FILENO, MALLOC_FAIL);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -86,8 +82,7 @@ void add_handler(stack_t **stack, unsigned int line_number)
 	if (stack_len(*stack) < 2)
 	{
 		dprintf(STDERR_FILENO, ADD_FAIL, line_number);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 
@@ -98,8 +93,7 @@ void add_handler(stack_t **stack, unsigned int line_number)
 	if (!node)
 	{
 		dprintf(STDERR_FILENO, MALLOC_FAIL);
-		free_data();
-		free_stack();
+		free_data(1);
 		exit(EXIT_FAILURE);
 	}
 }
